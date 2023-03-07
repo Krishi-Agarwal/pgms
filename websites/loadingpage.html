@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="loadingpage.css">
     <title>LOADING PAGE</title>
 </head>
-<body>
+<body onkeypress="playAudio()">
+    
     <audio id="myAudio">
         <source src="New folder\entryaudio.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
@@ -16,13 +17,20 @@
     <h1>PG MANAGEMENT SYSTEM</h1>
 </body>
 <script>
-    let k=0;
-    if(k++==0)
+    // alert("THIS WEBSITE CONTAINS AUDIO");
+    let i=0;
+    if(i++==0)
     {   
-        setTimeout(() =>{playAudio();document.getElementById("im").style.visibility="visible";console.log("happened")},1000);    
+        foraudio();
+        setTimeout(() =>{document.getElementById("im").style.visibility="visible";},1000);    
     }
-    function playAudio() {
+    async function foraudio()
+    {
+      playAudio();
+    }
+    async function playAudio() {
       document.getElementById("myAudio").play();
+      // setTimeout(() =>{document.getElementById("myAudio").play();},1000);
     }
     
   </script>
