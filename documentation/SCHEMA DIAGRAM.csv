@@ -1,0 +1,10 @@
+text,type,typeId,Description
+OWNER,Database Table,creately.database.table,
+MANAGER,Database Table,creately.database.table,
+UNIT,Database Table,creately.database.table,
+WARDEN,Database Table,creately.database.table,
+ROOMS,Database Table,creately.database.table,
+STUDENT,Database Table,creately.database.table,
+PARENT,Database Table,creately.database.table,
+EMPLOYEES,Database Table,creately.database.table,
+ATTENDANCE,Database Table,creately.database.table,
