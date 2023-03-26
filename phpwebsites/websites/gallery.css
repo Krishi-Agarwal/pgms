@@ -12,6 +12,7 @@ h3{
     width: 350px;
     height: 350px;
     position: sticky;
+    transition: .5s all;
 
 }
  /* .images img:hover {
