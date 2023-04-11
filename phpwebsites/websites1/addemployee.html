@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="addemployee.css">
+    <title>EMPLOYEE ADITION</title>
+</head>
+<body>
+    <form action="addemployee1.php" method="post" >
+        <table >
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>PHONE NUMBER</th>
+                <th>UNIT</th>
+                <th>SALARY</th>
+                <th>DOJ</th>
+                <th>USER NAME</th>
+                <th>PASSWORD</th>
+                <th>TYPE</th>
+            </tr>
+            <tr>
+                <td><input id="mid" type="number" name="mid"></td>
+                <td><input id="name" type="string" name="name"></td>
+                <td><input id="phone" type="string" name="phone_number"></td>
+                <td><input id="unit" type="number" name="uid"></td>
+                <td><input id="salary" type="amount" name="salary"></td>
+                <td><input id="doj" type="date" name="doj"></td>
+                <td><input id="uname" type="text" name="username"></td>
+                <td><input id="password" type="password" name="password"></td>
+                <td><select name="type" id="type">
+                    <option value="manager">manager</option>
+                    <option value="warden">warden</option>
+                </select></td>
+            </tr>
+            
+        </table>
+        <input type="submit" value="ADD EMPLOYEE">
+        <button type="button" value="CLEAR" onclick="clearfields()">CLEAR</button>
+
+    </form>
+</body>
+<script>
+    let arr=["mid","name","phone","unit","salary"];
+    function clearfields() 
+    {
+        console.log("ENTERED FOR CLEARING");
+        for(let i=0; i<arr.length; i++)
+        document.getElementById(arr[i]).value="";
+    }
+</script>
+</html>

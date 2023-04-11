@@ -1,0 +1,257 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['name']))
+    {
+        echo "<script>location.href='login.html'</script>";
+    }
+
+?>
+<?php
+$conn = mysqli_connect("localhost:3307", "root", "", "pgms");
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="owner1.css"> -->
+    <link rel="stylesheet" href="own.css">
+    <title>Welcome OWNER</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function revenue()
+        {
+            var s1=document.getElementById("s1").value;
+            var s2=document.getElementById("s2").value;
+            //console.log(s2);
+            if(s2=="ALL")
+            {
+                <?php
+                $sqlp="SELECT BASERENT*TOTAL_BEDS as total from ROOMS";
+                $sqlg="SELECT BASERENT*(BEDS_OCCUPIED) as total from ROOMS";
+                $rp=mysqli_query($conn,$sqlp);
+                $rg=mysqli_query($conn,$sqlg);
+                $sump=0;
+                $sumg=0;
+                while($row=mysqli_fetch_assoc($rp))
+                {
+                    $sump+=$row['total'];
+                }
+                while($row=mysqli_fetch_assoc($rg))
+                {
+                    $sumg+=$row['total'];
+                }
+                ?>
+                console.log(<?php echo $sump; ?>);
+                console.log(<?php echo $sumg; ?>);
+                if(s1=="POSSIBLE")
+                {
+                    
+                    document.getElementById("revenue").innerHTML=<?php echo $sump; ?>;
+                }
+                else
+                document.getElementById("revenue").innerHTML=<?php echo $sumg; ?>;
+            }
+        
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1 style="margin-top:5px;margin-bottom:0;">PG MANAGEMENT SYSTEM</h1>
+        
+    </header>
+    <hr>
+    <nav>
+        <ul id="leftnav">
+            
+            <li><a href="units.php" target="_blank">UNITS</a></li>
+            <li><a href="" target="_blank">ROOMS</a></li>
+            <li><a href="gallery.html" target="_blank">GALLERY</a></li>
+            <li><a href="addemployee.php" target="_blank">EMPLOYEES</a></li>
+            <li><a href="#feedback" style="transition-duration: 0.5s;">COMPLAINTS</a></li>
+            
+        </ul>
+        <ul id="rightnav">
+            <li><a href="destroy.php" target="_blank" >sign out</a></li>
+        </ul>
+    </nav>
+        <div class="normaldetails">
+        <div>
+                <p><b>NO OF UNITS</b></p>
+                <hr><br>
+                <b><?php
+                $tu="SELECT count(*) as total from UNIT";
+                $resulttu=mysqli_query($conn,$tu);
+                while($rowu=mysqli_fetch_assoc($resulttu))
+                {
+                    echo $rowu['total'];
+                }?></b>
+            </div>
+            <div>
+                <p><b>NO OF ROOMS</b></p>
+                <hr>
+                <br>
+                <b><?php
+                $tr="SELECT count(*) as total from ROOMS";
+                $resulttr=mysqli_query($conn,$tr);
+                while($row=mysqli_fetch_assoc($resulttr))
+                {
+                    echo $row['total'];
+                }?>
+                </b>
+            </div>
+            
+            <div>
+                <p><b>NO OF BEDS</b></p>
+                <hr><br>
+                <b><?php
+                $tu="SELECT sum(TOTAL_BEDS) as total from rooms";
+                $resulttu=mysqli_query($conn,$tu);
+                while($rowu=mysqli_fetch_assoc($resulttu))
+                {
+                    echo $rowu['total'];
+                }?></b>
+            </div>
+            <div>
+                <p><b>BEDS STATUS </b></p>
+                <hr><br>
+                <b>VACANT:<?php
+                $tu="SELECT sum(TOTAL_BEDS-BEDS_OCCUPIED) as total from rooms";
+                $resulttu=mysqli_query($conn,$tu);
+                while($rowu=mysqli_fetch_assoc($resulttu))
+                {
+                    echo $rowu['total'];
+                }?> OCCUPIED:<?php
+                $tu="SELECT sum(BEDS_OCCUPIED) as total from rooms";
+                $resulttu=mysqli_query($conn,$tu);
+                while($rowu=mysqli_fetch_assoc($resulttu))
+                {
+                    echo $rowu['total'];
+                }?></b>
+            </div>
+            <div>
+                <p style="text-align:center;"><b>NO OF COMPLAINTS</b></p>
+                <hr><br>
+                <b>ROOMS</b>
+            </div>
+        </div>
+    </nav>
+    <div id="tc">
+    <table style="box-shadow: 0 0 25px white;">
+        <tr>
+            <th>SELECT THE NEED</th>
+            <th>UNITS</th>
+            <th>REVENUE</th>
+        </tr>
+        <tr>
+        <td><select id="s1" onselect="revenue()" onmouseover="revenue()">
+                <option value="POSSIBLE">POSSIBLE REVENUE</option>
+                <option value="TOTAL">TOTAL REVENUE</option>
+            </select></td>
+            <td><select id="s2" onselect="revenue()" onmouseover="revenue()">
+                <!-- will be replaced by php options -->
+                
+                <option value="ALL">ALL</option>
+                <?php
+                $sqloption="Select `UNO` as UNO from `unit`;";
+                $resultoptions=mysqli_query($conn,$sqloption);
+
+                while($row=mysqli_fetch_assoc($resultoptions))
+                {
+                    echo "<option value=".$row['UNO'].">UNIT ".$row['UNO']."</option>";
+                }
+                ?>
+            </select></td>
+            <td id="revenue">REVENUE</td>
+        </tr>
+    </table>
+    <canvas id="myChart" style="width:100%;max-width:600px;border-radius: 20px;box-shadow:0 0  25px white;"></canvas>
+    </div>
+
+    <div id="feedback">
+            <h1 id="description" style="text-align:center;">FEEDBACKS FOR THE MONTH</h1>
+            <div id="feedback">
+            <?php
+            
+                $conn = mysqli_connect("localhost:3307", "root", "", "pgms");
+                $sql  = "SELECT * from `feedback`";
+                $result =mysqli_query($conn,$sql);
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    $find=$row["SID"];
+                    $sql = "SELECT `name` from `student` where `SID`=$find;";
+                    $result1 =mysqli_query($conn,$sql);
+                    if($row1 = mysqli_fetch_assoc($result1))
+                    {echo "<div class='comment' style='background-color: azure;border: 1px solid black;border-radius:5px;margin:20px;'><h1 style='margin:10px'>".$row1['name']."</h1>";
+                    echo "<p style='margin:20px'>".$row["COMMENT"]."</p></div>";}
+                }
+                
+                
+            ?>
+    </div>
+
+
+    <script>
+// var xValues = ["UNIT 1", "UNIT 2", "UNIT 3", "UNIT 4", "UNIT 5"];
+var xValues = [<?php
+                $sqloption="Select * from `unit`;";
+                $resultoptions=mysqli_query($conn,$sqloption);
+                $i=0;
+                while($row=mysqli_fetch_assoc($resultoptions))
+                {
+                    if($i++==0)
+                    echo "\"UNIT ".$row['UNO']."\"";
+                    else
+                    echo ",\"UNIT ".$row['UNO']."\"";
+                }
+                ?>];
+// var yValues = [55, 49, 44, 24, 15];
+var yValues = [<?php
+                $sqloption="Select * from `unit`;";
+                $resultoptions=mysqli_query($conn,$sqloption);
+                $i=0;
+                while($row=mysqli_fetch_assoc($resultoptions))
+                {
+                    $sqlrev="Select sum(BASERENT*TOTAL_BEDS) as rev from `rooms` where `UNO`=".$row['UNO'].";";
+                    $resultrev=mysqli_query($conn,$sqlrev);
+                    while($row1=mysqli_fetch_assoc($resultrev))
+                    {if($i++==0)
+                        echo "\"".$row1['rev']."\"";
+                    else
+                        echo ",\"".$row1['rev']."\"";
+                    }
+                }
+                ?>];
+var barColors = ["skyblue", "lightgreen","blue","orange","brown"];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "REVENUE PER UNIT"
+    }
+  }
+});
+</script>
+</body>
+
+
+
+</html> 

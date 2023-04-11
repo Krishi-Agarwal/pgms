@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="loadingpage.css">
+    <title>LOADING PAGE</title>
+</head>
+<body onkeypress="playAudio()">
+    
+    <audio id="myAudio">
+        <source src="New folder\entryaudio.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+      </audio>
+    <img id="im" src="./pictures/logo1.jpeg" style="visibility:hidden;">
+    <h1>PG MANAGEMENT SYSTEM</h1>
+</body>
+<script>
+    // alert("THIS WEBSITE CONTAINS AUDIO");
+    let i=0;
+    if(i++==0)
+    {   
+        foraudio();
+        setTimeout(() =>{document.getElementById("im").style.visibility="visible";},1000);    
+    }
+    async function foraudio()
+    {
+      playAudio();
+    }
+    async function playAudio() {
+      document.getElementById("myAudio").play();
+      // setTimeout(() =>{document.getElementById("myAudio").play();},1000);
+    }
+    
+  </script>
+</html>

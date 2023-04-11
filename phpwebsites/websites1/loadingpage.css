@@ -1,0 +1,53 @@
+/* Base */
+body {
+
+    background-color: #000;
+    
+  }
+  h1 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: hsl(0, 0%, 28%);
+    display: block;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: monospace;
+    letter-spacing: 7px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  
+  h1 {
+    padding: 64px;
+    padding-top: 0px;
+    
+    background: linear-gradient(to right, hsl(0, 0%, 30%) 0, hsl(0, 0%, 100%) 10%, hsl(0, 0%, 30%) 20%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s infinite linear;
+  }
+  
+  @keyframes shine {
+    0% {
+      background-position: 0;
+    }
+    60% {
+      background-position: 600px;
+    }
+    100% {
+      background-position: 1000px;
+    }
+  }
+  @keyframes mymove 
+  {
+    /* from {left: 0px;}
+    to {text-align: center;} */
+  }
+
+  img{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    animation: mymove 10s;
+  }

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+
+    *
+    {
+        margin: 0;
+        padding: 0;
+    }
+    h1{
+        padding: 20px 0px 20px 0px ;
+        font-size: 3em;
+        display: flex;
+        justify-content: center;
+        color:white;
+    }
+    label
+    {
+        text-transform: uppercase;
+    }
+    button 
+    {
+        
+        width: 100%;
+        border-radius: 5px;    
+        background-color: #ffe134;
+        border: none;
+        color: white;
+        /* padding: 15px 32px; */
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 25px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+    button:hover 
+    {
+    background-color: #41ff64;
+    color: rgb(0, 0, 0);
+    }
+    body
+    {
+        background-color: black;
+    }
+    #login
+    {
+        width:80%;
+        
+        float: center;
+    }
+    .container
+    {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80vh;
+    }
+    input,select
+    {
+        width: 80%;
+    }
+    form {
+        color: white;
+        padding: 2%;
+        text-align: center;
+        justify-content: center;
+        border-color: #26bf47;
+        box-shadow:0 0 25px #26bf47;
+        border-radius: 50px;
+        width: 300px;
+    }
+    #right, #left
+    {
+        position: relative;
+        margin:20px;
+        background-color: white;
+        width: 20%;
+        height: 80%;
+    }
+    #limg, #rimg
+    {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+
+    </style>
+    <script>
+        
+        var arr=["hostel.jpg","i1u1.jpeg","i1u2.jpeg","i2u1.jpeg","i3u1.jpeg"];
+        
+        var i=0;
+        var l=arr.length;
+        
+        function changeimage()
+        {
+            //document.getElementById("limg").src="gallery//hostel.jpg";
+            var z="gallery//"+arr[i++%l];
+            var a=document.getElementById("limg");
+            a.src=z;
+            z="gallery//"+arr[i++%l];
+            var b=document.getElementById("rimg");
+            b.src=z;
+            a.style.transitionDuration="0.5s";
+            b.style.transitionDuration="0.5s";
+            console.log("changeimage"); 
+        }
+        setInterval(changeimage,2000);
+    </script>
+</head>
+<body>
+    <h1 onload="changeimage();">LOGIN TO PG MANAGEMENT SYSTEM</h1>
+    <hr>
+    <div class="container">
+    <div id="left">
+        <img id="limg" src="gallery/i2u1.jpeg" alt="img">
+    </div>
+    <form name="form" action="login.php" method="post" style="justify-content:center;">
+        <label id="label1">login as</label><br>
+        <select id="usertype" name="loggedas">
+            <option value="OWNER">OWNER</option>
+            <option value="MANAGER">MANAGER</option>
+            <option value="WARDEN">WARDEN</option>
+        <option value="STUDENT">STUDEN</option>
+        </select><br><br>
+        <label id="label2">user name</label><br>
+        <input type="text" name="username" id="username"><br><br>
+        <label id="label3">password</label><br>
+        <input type="password" name="password"><br><br>
+        <button id="login" type="submit" value="Login">LOGIN</button><br>
+    </form>
+    <div id="right">
+        <img id="rimg" src="gallery/hostel.jpg" alt="img">
+    </div>
+    </div>
+        
+</body>
+</html>

@@ -1,0 +1,158 @@
+*
+{
+    margin:0;
+    padding:0;
+}
+header
+{
+    margin: 0;
+    display: flex;
+    background-color: black;
+    
+    justify-content: space-around;
+}
+header h1
+{
+    color: white;
+    top: 0;
+    padding: 5px;
+}
+header h1
+{
+    
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #fe02bf 0%,
+    #8716ff 29%,
+    #770de9 67%,
+    #3784f6 100%
+    
+  );
+    background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      font-size: 50px;
+      top:0;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+body>hr
+{
+    margin-top:0;
+    margin-bottom: 0;
+    border: 1px solid white;
+    color: white;
+}
+nav 
+{ 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: sticky;
+    top:0;
+    top: 0px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(132, 114, 114);
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 4px solid white;
+    border-top: 2px solid white;
+
+}
+li a
+{
+    text-decoration: none;
+    color: rgb(124, 108, 108);
+    text-transform:uppercase;
+    font-size: 23px;
+}
+li a:hover
+{
+    border-top-right-radius: 15px;
+    transition: .5s;
+    background-color: antiquewhite;
+    padding: 5px;
+    border:1px solid white;
+}
+nav ul
+{
+    text-decoration:none;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+nav ul li
+{
+    list-style: none;
+    margin: 10px;;
+}
+
+.normaldetails
+{
+    /* background-color: skyblue; */
+   
+    display: flex;
+    justify-content: space-between;
+}
+.normaldetails div
+{
+    box-shadow: 0 0 20px greenyellow;
+    background-color: white;
+    width: 300px;
+    height: 100px;
+    border: 2px solid white;
+    border-radius:20px;
+    margin: 2%;
+    padding: 10px;
+    
+}
+.normaldetails div b
+{
+    display: flex;
+    justify-content: center;
+}
+#tc
+{
+
+    display: flex;
+    justify-content: space-between;
+    padding:100px;    
+    align-items: center;
+
+}
+#tc table,tr
+{
+    background-color: white;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+canvas
+{
+    background-color:white;
+}
+#tc td,th
+{
+    padding: 10px;
+}
+body{
+    
+    background-image: linear-gradient(black,rgb(0, 0, 0),rgb(74, 69, 69),rgb(132, 126, 126),white);
+}
+*::-webkit-scrollbar {
+    display: none;
+}
+b{
+    font-size: 20px;
+}

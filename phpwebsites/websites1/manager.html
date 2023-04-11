@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+    <link rel="stylesheet" href="all.css">
+    <link rel="stylesheet" href="manager.css">
+    <title>ManagerLogin</title>
+</head>
+  
+<body>
+    
+    <nav>
+        
+            <ul id="leftnav">
+                <li><i class="fa-solid fa-magnifying-glass"></i></li>
+                <li><a href="" target="_blank">ADD STUDENT</a></li>
+                <li><a href="" target="_blank">ROOMS</a></li>
+                <li><a href="gallery.html" target="_blank">GALLERY</a></li>
+                <li><a href="employee.html" target="_blank">EMPLOYEE</a></li>
+                <li><a href="" target="_blank">COMPLAINTS</a></li>
+                
+            </ul>
+            <ul id="rightnav">
+                <li><a href="" target="_blank">sign out</a></li>
+            </ul>
+    </nav>
+</body>
+<script>
+    let myWindow;
+    let i=0;
+    function openWin() {
+      myWindow = window.open("loadingpage.html","width=100%,height=100%");
+      setInterval(closeWin, 3000);
+    }
+    
+    function closeWin() {
+      myWindow.close();
+    }
+    if(i++==0)
+        openWin();
+    </script>
+</html>
