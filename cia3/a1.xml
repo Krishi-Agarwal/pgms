@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="a1.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<?xml-stylesheet href="a1.xsl" type="text/xsl"?>
+<library>
+  <books>
+    <book id="1">
+      <title>The Great Gatsby</title>
+      <author>F. Scott Fitzgerald</author>
+      <publisher>Charles Scribner's Sons</publisher>
+      <publicationDate>1925-04-10</publicationDate>
+      <category>Fiction</category>
+      <available>true</available>
+    </book>
+    <book id="2">
+      <title>To Kill a Mockingbird</title>
+      <author>Harper Lee</author>
+      <publisher>J. B. Lippincott &amp; Co.</publisher>
+      <publicationDate>1960-07-11</publicationDate>
+      <category>Fiction</category>
+      <available>false</available>
+    </book>
+    <book id="3">
+      <title>1984</title>
+      <author>George Orwell</author>
+      <publisher>Secker &amp; Warburg</publisher>
+      <publicationDate>1949-06-08</publicationDate>
+      <category>Fiction</category>
+      <available>true</available>
+    </book>
+  </books>
+  <members>
+    <member id="1">
+      <name>John Smith</name>
+      <address>123 Main St, Anytown USA</address>
+      <phone>555-1234</phone>
+      <email>johnsmith@example.com</email>
+    </member>
+    <member id="2">
+      <name>Jane Doe</name>
+      <address>456 Broadway, Anytown USA</address>
+      <phone>555-5678</phone>
+      <email>janedoe@example.com</email>
+    </member>
+  </members>
+  <borrowings>
+    <borrowing>
+      <bookID>1</bookID>
+      <memberID>1</memberID>
+      <borrowDate>2022-01-01</borrowDate>
+      <dueDate>2022-01-15</dueDate>
+    </borrowing>
+    <borrowing>
+      <bookID>3</bookID>
+      <memberID>2</memberID>
+      <borrowDate>2022-02-01</borrowDate>
+      <dueDate>2022-02-15</dueDate>
+    </borrowing>
+  </borrowings>
+</library>
