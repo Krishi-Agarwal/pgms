@@ -1,0 +1,86 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 10px;
+    padding: 5px;
+    margin: 15px 30px;
+}
+h2{
+    position: relative;
+    text-align: center;
+}
+hr{
+    background-color: black;
+    height: 3px;
+}
+.container{
+    background-color: rgba(98, 160, 176, 0.384);
+    padding:5px 20px 15px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 50%;
+    margin: auto;
+}
+input[type="text"],
+input[type="email"],
+select,
+textarea{
+    width:100%;
+    padding: 5px;
+    background-color: azure;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+fieldset{
+    background-color: azure;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+hr{
+    border-color: rgb(250, 13, 13) solid 5px;
+    width:100%;
+}
+.heading{
+    text-align: center;
+    text-decoration: underline;
+}
+input[type="submit"]{
+    padding: 12px 20px;
+    width: 30%;
+    color: rgb(249, 249, 252);
+    background-color: rgb(104, 111, 245);
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    margin: auto;
+    display: block;
+}
+button{
+    padding: 12px 20px;
+    width: 30%;
+    color: rgb(249, 249, 252);
+    background-color: rgb(104, 111, 245);
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    margin: auto;
+    display: block;
+}
+#btn{
+    display: flex;
+}
+button:hover{
+    background-color: rgb(16, 83, 81);
+    color: black;
+    transition: 0.5s;
+}
+input[type="submit"]:hover{
+    background-color: rgb(16, 83, 81);
+    color: black;
+    transition: 0.5s;
+
+}

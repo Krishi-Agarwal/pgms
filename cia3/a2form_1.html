@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <!--  -->
+    <div class="container">
+    <form action="a2done.html" method="get" onsubmit="return validate()">
+    <h1 class="heading">Christ Deemed to be University</h1>
+    <hr>
+    <h2>Feedback Form 2023</h2>
+    <hr>
+    <p>Name : * <input type="text" name="name" id="name" required placeholder="Enter Your Name"></p>
+    <fieldset>
+        <legend>Gender</legend>
+        <p>
+            Male <input type ="radio" name="gender" id="male" required > Female<input type ="radio" name="gender" id="Female" required > Others<input type ="radio" name="gender" id="others"   >
+        </p>
+    </fieldset>
+    <p>Email : * <input type="email" name="email" id="email"  placeholder="Email" required ></p>
+    <p>Address : * <input type="text" name="address" id="address"  required placeholder="Enter your current address" ></p>
+    <p>Things That You Liked The Most*</p>
+    <p id="option_college">
+    <p><input type="checkbox" name="student" id="tlm">Students of Our Campus</p>
+    <p><input type="checkbox" name="location" id="tlm">Location of Our Campus</p>
+    <p><input type="checkbox" name="clife" id="tlm">Campus Life</p>
+    <p><input type="checkbox" name="atmosphere" id="tlm">College Atmosphere</p>
+    <p><input type="checkbox" name="droom" id="tlm">Dorm Rooms</p>
+    <p><input type="checkbox" name="sport" id="tlm">Sports</p>
+    </p>
+    <p>
+        <select name="ltype" id="ltype" required >
+            <option value="">How did you hear about this college </option>
+            <option value="friends">Friends</option>
+            <option value="televison">Television</option>
+            <option value="internet">Internet</option>
+            <option value="other">Others</option>
+       </select>
+    </p>
+    <p>
+        Any Additional Comment<br>
+        <textarea name="ac" id="ac" cols="20" rows="8" placeholder="Please provide if any more feedback points"></textarea>
+    </p>
+    <div id="btn">
+    <input type="submit" value="Submit" >
+    <button type="reset" value="submit">Reset</button>  
+</div>
+</div>
+</form>
+<script src="script.js"></script>
+</body>
+</html>

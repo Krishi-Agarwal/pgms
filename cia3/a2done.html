@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback done</title>
+</head>
+<body>
+    <h1>Feedback Done</h1>
+    <span id="done"> Your Feedback Id is : </span>
+</body>
+<script>
+    let done = document.getElementById("done");
+    let s4 = () => {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+}
+ let s = s4();
+ done.innerHTML += `${s}`;
+</script>
+</html>
